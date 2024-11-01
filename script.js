@@ -38,6 +38,17 @@ gameBar.appendChild(resetButton);
 container.appendChild(gameBar);
 
 // Game Logic
+function randomInteger(max) {
+  return Math.floor(Math.random() * (max + 1));
+}
+function randomRgb() {
+  let r = randomInteger(255);
+  let g = randomInteger(255);
+  let b = randomInteger(255);
+
+  return [r, g, b];
+}
+
 let isPlaying = false;
 
 const allDivs = container.querySelectorAll("div");
@@ -55,7 +66,7 @@ playButton.addEventListener("click", () => {
   rows.forEach((row) => {
     row.addEventListener("mouseover", () => {
       if (isPlaying) {
-        row.style.backgroundColor = "red";
+        row.style.backgroundColor = "rgb(" + randomRgb().join(",") + ")";
       }
     });
   });
