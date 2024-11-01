@@ -50,16 +50,20 @@ allDivs.forEach((div) => {
 
 playButton.addEventListener("click", () => {
   alert("Okey, try it");
+  isPlaying = true;
 
   rows.forEach((row) => {
     row.addEventListener("mouseover", () => {
-      row.style.backgroundColor = "red";
+      if (isPlaying) {
+        row.style.backgroundColor = "red";
+      }
     });
   });
 });
 
 resetButton.addEventListener("click", () => {
   alert("Okey, Got u");
+  isPlaying = false;
 
   rows.forEach((row) => {
     row.style.backgroundColor = "white";
